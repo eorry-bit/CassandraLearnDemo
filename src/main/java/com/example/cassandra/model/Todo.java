@@ -13,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
-@Table
+@Table("todolist")
 public class Todo {
 
     @PrimaryKey
