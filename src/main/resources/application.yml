@@ -1,0 +1,14 @@
+
+
+spring:
+  data:
+    cassandra:
+      keyspace-name: todolist
+      contact-points: 127.0.0.1:9042
+      port: 9042
+      schema-action: create_if_not_exists
+      username: cassandra
+      password: cassandra
+      local-datacenter: datacenter1
+server:
+  port: 10086
