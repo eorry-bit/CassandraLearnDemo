@@ -1,5 +1,6 @@
 package com.example.cassandra.controller;
 
+import com.example.cassandra.SnowFlake;
 import com.example.cassandra.TodoRepository;
 import com.example.cassandra.model.Todo;
 import org.slf4j.Logger;
@@ -42,6 +43,8 @@ public class TodoController {
     @PostMapping("/")
     public ResponseEntity<Todo> createTodo(@RequestBody Todo todo){
         LOGGER.info("Post todo called");
+        SnowFlake snowFlake = new SnowFlake(1, 2);
+        todo.setId(String.valueOf(snowFlake.nextId()));
         Todo result=todoRepository.save(todo);
         return new ResponseEntity<>(result,HttpStatus.OK);
     }
